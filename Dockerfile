@@ -14,4 +14,11 @@ RUN cd /opt \
     && mv CMAK/target/universal/cmak-${VERSION}.zip ./ \
     && rm -rf CMAK
  
- 
+ RUN cd /opt \
+    && unzip -q cmak-${VERSION}.zip \
+    && rm -rf cmak-${VERSION}.zip \
+    && ln -s cmak-${VERSION} cmak
+  
+  WORKDIR /opt/cmak
+  
+  ENTRYPOINT ["bin/cmak"]
