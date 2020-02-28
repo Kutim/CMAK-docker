@@ -11,9 +11,7 @@ RUN cd /opt \
     && while [[ -z $(yes r | ./sbt clean dist 1>&2 && echo "ok") ]]; do echo "retry sbt"; done \
     && rm -rf ~/.ivy2 ~/.pki ~/.sbt \
     && cd /opt \
-    && mv CMAK/target/universal/cmak-${version}.zip ./ \
-    && rm -rf CMAK \
-    && ls -l -h cmak-${version}.zip \
-    && md5sum cmak-${version}.zip
+    && mv CMAK/target/universal/cmak-${VERSION}.zip ./ \
+    && rm -rf CMAK
  
  
