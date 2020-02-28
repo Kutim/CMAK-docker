@@ -5,11 +5,9 @@ LABEL maintainer="Kutim <1252900197@qq.com>"
 ARG VERSION=3.0.0.2
 
 RUN cd /opt \
-    && curl -sSL https://codeload.github.com/yahoo/CMAK/zip/${version} -o CMAK.zip \
-    && unzip CMAK.zip \
-    && mv CMAK-${version} CMAK \
-    && rm -f CMAK.zip \
+    && git clone https://github.com/yahoo/CMAK.git \
     && cd CMAK \
+    && git checkout ${VERSION} \
     && while [[ -z $(yes r | ./sbt clean dist 1>&2 && echo "ok") ]]; do echo "retry sbt"; done \
     && rm -rf ~/.ivy2 ~/.pki ~/.sbt \
     && cd /opt \
