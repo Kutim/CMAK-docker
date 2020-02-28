@@ -7,7 +7,7 @@ ARG VERSION=3.0.0.2
 RUN cd /opt \
     && git clone https://github.com/yahoo/CMAK.git \
     && cd CMAK \
-    && git checkout ${VERSION} \
+    && git checkout -b ${VERSION} ${VERSION} \
     && while [[ -z $(yes r | ./sbt clean dist 1>&2 && echo "ok") ]]; do echo "retry sbt"; done \
     && rm -rf ~/.ivy2 ~/.pki ~/.sbt \
     && cd /opt \
