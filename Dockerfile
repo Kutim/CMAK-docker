@@ -2,7 +2,7 @@ FROM  kutim/openjdk:11.0.4-stretch
 
 LABEL maintainer="Kutim <1252900197@qq.com>"
 
-ARG VERSION=3.0.0.2
+ARG VERSION=3.0.0.0
 
 RUN cd /opt \
     && git clone https://github.com/yahoo/CMAK.git \
